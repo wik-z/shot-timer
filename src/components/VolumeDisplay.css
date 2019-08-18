@@ -1,0 +1,31 @@
+.volume-display {
+    width: 500px;
+    position: relative;
+}
+
+.volume-display .bar {
+    background: green;
+    height: 20px;
+}
+
+.volume-display .peak-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background: black;
+    width: 5px;
+    height: 5px;
+    z-index: 6;
+}
+
+.volume-display .threshold-indicator {
+    position: absolute;
+    height: 20px;
+    background: rgba(200,200,200,0.5);
+    border-right: 1px solid black;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 5;
+}

@@ -1,0 +1,19 @@
+.equalizer-display {
+    height: 100px;
+    background-image: linear-gradient(to bottom, red,orange,yellow,green); 
+    display: inline-block;
+}
+
+.equalizer-display .inner {
+    background-color: white;
+    width: 3px;
+    border-right: 1px solid #aaa;
+    float: left;
+}
+
+.equalizer-display::after {
+    display: block;
+    width: 100%;
+    content: '';
+    clear: both;
+}
