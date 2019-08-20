@@ -5,8 +5,8 @@ function VolumeDisplay({ volume, peak, treshold }) {
     return (
         <div className="volume-display">
             <div className="bar" style={{ width: `${volume}%`}} />
-            <div className="peak-indicator"  />
-            <div className="threshold-indicator" style={{ width: `${treshold}%`}} />
+            {peak && <div className="peak-indicator" />}
+            {treshold && <div className="threshold-indicator" style={{ width: `${treshold}%`}} />}
         </div>
     )
 }

@@ -16,6 +16,11 @@ body, input, select {
   color: #333;
 }
 
+input, select {
+  max-width: 100%;
+  width: 100%;
+}
+
 * {
   box-sizing: border-box;
 }

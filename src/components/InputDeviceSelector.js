@@ -17,7 +17,7 @@ class InputDeviceSelector extends React.Component {
     render() {
         return (
             <select value={this.props.value} onChange={this.props.onChange}>
-                <option value={null}>Please select an input device</option>
+                <option value={null}>Select...</option>
                 {this.state.availableDevices.map((device, index) => {
                     return <option 
                         value={device.deviceId}
