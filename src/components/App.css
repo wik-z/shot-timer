@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap');
+
 html, body {
   margin: 0;
   padding: 0;
@@ -5,6 +7,43 @@ html, body {
   min-height: 100%;
 }
 
+body, input, select, button {
+  font-family: 'Poppins', sans-serif;
+}
+
+body, input, select {
+  font-size: 19px;
+  color: #333;
+}
+
 * {
   box-sizing: border-box;
+}
+
+#main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+select, input {
+  padding: 13px 15px;
+  outline: none;
+  border: 1px solid #aaa;
+}
+
+.btn {
+  background: #ff0088;
+  border: 0;
+  padding: 9px 25px;
+  font-size: 19px;
+  color: white;
+  outline: none;
+  border-radius: 2px;
+}
+
+.btn:hover:focus {
+  background: #d1006f;
+
 }

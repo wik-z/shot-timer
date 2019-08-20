@@ -3,7 +3,9 @@ import MicrophoneService from '../../services/MicrophoneService';
 import VolumeDisplay from '../VolumeDisplay';
 import InputDeviceSelector from '../InputDeviceSelector';
 import { stages } from '../../contexts/AppContext';
-// import { stages } from '../../contexts/AppContext';
+import Stage from './Stage';
+
+import './Privileges.css';
 
 class Privileges extends React.Component {
     state = {
@@ -93,7 +95,7 @@ class Privileges extends React.Component {
 
     render() {
         return (
-            <div className="stage-privileges">
+            <Stage id="privileges">
                 {this.state.error ? (
                     <div className="error">
                         <p>An error occured.</p> 
@@ -103,10 +105,16 @@ class Privileges extends React.Component {
                     <div>
                         {this.state.goodToProceed ? (
                             <div className="current-read">
-                                <h2>Our current microphone read:</h2>
+                                <h2>Current microphone read:</h2>
                                 <VolumeDisplay volume={this.state.volume} />
                                 <h4>All good?</h4>
-                                <button onClick={this.handleProceed.bind(this)}>PROCEED</button>
+                                <p>
+                                    (If not, it might be worth reloading the page and picking a different device)
+                                </p>
+                                <button 
+                                    onClick={this.handleProceed.bind(this)}
+                                    className="btn"
+                                >PROCEED</button>
                             </div>
                         ) : (
                             <div className="access-request">
@@ -116,12 +124,18 @@ class Privileges extends React.Component {
                                     </>
                                 ) : (
                                     <>
-                                        <p>We need access to your microphone (duh)</p>
+
+                                        <h4>
+                                            We need access to your microphone <i>(duh...)</i>
+                                        </h4>
                                         {this.state.selectedDevice ? (
                                             <>
-                                                <p>Please click the button below to start.</p>
+                                                <p>Now click the button below to start.</p>
                                                 <p>
-                                                    <button onClick={this.handleClickedStart.bind(this)}>
+                                                    <button
+                                                        onClick={this.handleClickedStart.bind(this)}
+                                                        className="btn"    
+                                                    >
                                                         START
                                                     </button>
                                                 </p>
@@ -141,7 +155,7 @@ class Privileges extends React.Component {
                         )}
                     </div>
                 )}
-            </div>
+            </Stage>
         )
     }
 }
