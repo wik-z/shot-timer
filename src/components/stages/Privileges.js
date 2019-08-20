@@ -1,6 +1,7 @@
 import React from 'react';
 import MicrophoneService from '../../services/MicrophoneService';
 import VolumeDisplay from '../VolumeDisplay';
+import InputDeviceSelector from '../InputDeviceSelector';
 import { stages } from '../../contexts/AppContext';
 // import { stages } from '../../contexts/AppContext';
 
@@ -9,6 +10,7 @@ class Privileges extends React.Component {
         error: false,
         goodToProceed: false,
         clickedStart: false,
+        selectedDevice: '',
         volume: 0
     }
 
@@ -20,6 +22,8 @@ class Privileges extends React.Component {
     
     async componentDidMount() {
         if (MicrophoneService.error) {
+            console.log('error beyotch')
+
             this.setState({
                 error: true
             });
@@ -32,17 +36,18 @@ class Privileges extends React.Component {
 
             const devices = await MicrophoneService.getAvailableInputDevices();
     
-            if (!devices || devices.length < 4) {
+            if (!devices || !devices.length) {
+                console.log('No devices found!');
+
                 return this.setState({
                     error: true
                 });
             }
     
-            MicrophoneService.selectDevice(devices[3].deviceId);
+            MicrophoneService.selectDevice(this.state.selectedDevice);
             MicrophoneService.on('volume-change', this.handleVolumeChange);
             
             await MicrophoneService.listen();
-            
 
             this.setState({
                 goodToProceed: true
@@ -78,6 +83,14 @@ class Privileges extends React.Component {
         this.props.changeStage(stages.STAGE_CALIBRATION);
     }
 
+    handleDeviceChange(e) {
+        const value = e.target.value;
+
+        this.setState({
+            selectedDevice: value
+        });
+    }
+
     render() {
         return (
             <div className="stage-privileges">
@@ -104,12 +117,24 @@ class Privileges extends React.Component {
                                 ) : (
                                     <>
                                         <p>We need access to your microphone (duh)</p>
-                                        <p>Please click the button below to start.</p>
-                                        <p>
-                                            <button onClick={this.handleClickedStart.bind(this)}>
-                                                START
-                                            </button>
-                                        </p>
+                                        {this.state.selectedDevice ? (
+                                            <>
+                                                <p>Please click the button below to start.</p>
+                                                <p>
+                                                    <button onClick={this.handleClickedStart.bind(this)}>
+                                                        START
+                                                    </button>
+                                                </p>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <p>First, please select the microphone you'd like to use:</p>
+                                                <InputDeviceSelector
+                                                    value={this.state.selectedDevice}
+                                                    onChange={this.handleDeviceChange.bind(this)}
+                                                />
+                                            </>
+                                        )}
                                     </>
                                 )}
                             </div>

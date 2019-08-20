@@ -1,24 +1,28 @@
 import React from 'react';
+import MicrophoneService from '../services/MicrophoneService';
 
 class InputDeviceSelector extends React.Component {
     state = {
         availableDevices: [],
     }
 
-    componentDidMount() {
-        this.loadAvailableDevices();
-    }
+    async componentDidMount() {
+        const availableDevices = await MicrophoneService.getAvailableInputDevices();
 
-    loadAvailableDevices() {
-        
+        this.setState({
+            availableDevices
+        });
     }
 
     render() {
         return (
             <select value={this.props.value} onChange={this.props.onChange}>
                 <option value={null}>Please select an input device</option>
-                {this.state.availableDevices.map((device) => {
-                    return <option value={device.deviceId}>{device.label}</option>
+                {this.state.availableDevices.map((device, index) => {
+                    return <option 
+                        value={device.deviceId}
+                        key={device.deviceId}
+                    >{device.label || `Unknown device #${index + 1}`}</option>
                 })}
             </select>
         )
