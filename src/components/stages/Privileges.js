@@ -24,7 +24,7 @@ class Privileges extends React.Component {
     
     async componentDidMount() {
         if (MicrophoneService.error) {
-            console.log('error beyotch')
+            console.error('MicrophoneService failed to load');
 
             this.setState({
                 error: true

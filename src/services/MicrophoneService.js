@@ -224,9 +224,13 @@ class MicrophoneService {
 
         if (processor.volume !== volume) {
             processor.volume = volume;
-            this.volume = Math.min(100 * volume, 100);
+            const volumePercentage = Math.min(Math.round(100 * volume), 100)
 
-            this.emit('volume-change', this.volume);
+            if (volumePercentage !== this.volume) {
+                this.volume = volumePercentage;
+    
+                this.emit('volume-change', this.volume);
+            }
         }
     }
 }

@@ -6,8 +6,8 @@
 
 .equalizer-display .inner {
     background-color: white;
-    width: 3px;
-    border-right: 1px solid #aaa;
+    width: 1px;
+    /* border-right: 1px solid #aaa; */
     float: left;
 }
 
