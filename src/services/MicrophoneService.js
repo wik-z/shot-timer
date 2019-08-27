@@ -1,11 +1,13 @@
 class MicrophoneService {
     audioContext = null;
     inputDevice = null;
-
+    
     listeners = {};
     
     error = false;
-
+    
+    volume = 0;
+    
     /**
      * Emits an event to all listeners
      * @param {string} type 

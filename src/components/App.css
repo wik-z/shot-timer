@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap');
 
+@font-face {
+  font-family: 'LCD14';
+  src: local('LCD14'), url(../fonts/LCD14.otf) format('opentype');
+}
+
+
 html, body {
   margin: 0;
   padding: 0;
@@ -23,13 +29,6 @@ input, select {
 
 * {
   box-sizing: border-box;
-}
-
-#main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
 }
 
 select, input {

@@ -3,6 +3,7 @@ import Stage from './Stage';
 import VolumeDisplay from '../VolumeDisplay';
 import MicrophoneService from '../../services/MicrophoneService';
 import './Calibration.css';
+import AppContext, { stages } from '../../contexts/AppContext';
 
 // todo: move somewhere global
 const captureModes = {
@@ -11,6 +12,8 @@ const captureModes = {
 }
 
 class Calibration extends React.Component {
+    static contextType = AppContext;
+
     state = {
         volume: MicrophoneService.volume,
         threshold: 45,
@@ -74,7 +77,9 @@ class Calibration extends React.Component {
     }
 
     handleSubmit() {
-        // todo: go to the next stage
+        // set current threshold in global context
+        this.context.changeThreshold(this.state.threshold);
+        this.context.changeStage(stages.STAGE_TIMER);
     }
 
     render() {

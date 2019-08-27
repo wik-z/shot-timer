@@ -1,5 +1,14 @@
 .stage-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.stage-inner {
     align-self: center;
     text-align: center;
     padding: 15px;
+    width: 400px;
+    max-width: 100%;
 }

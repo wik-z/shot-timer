@@ -1,18 +1,18 @@
 import React from 'react';
 import './App.css';
-import AppContext from '../contexts/AppContext';
 import Router from './Router';
+import AppContext from '../contexts/AppContext';
 
 class App extends React.Component {
   render() {
     return (
-      <AppContext.Controller>
-        <div className="App">
-          <div id="main">
-            <Router />
+        <AppContext.Controller>
+          <div className="App">
+            <div id="main">
+              <Router />
+            </div>
           </div>
-        </div>
-      </AppContext.Controller>
+        </AppContext.Controller>
     );
   }
 }

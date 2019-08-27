@@ -4,7 +4,9 @@ import './Stage.css';
 function Stage({ children, id }) {
     return (
         <div className="stage-wrapper" id={`stage-${id}`}>
-            {children}
+            <div className="stage-inner">
+                {children}
+            </div>
         </div>
     )
 }

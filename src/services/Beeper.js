@@ -21,7 +21,7 @@ class Beeper {
     state = Beeper.states.BEEPER_STANDBY;
 
     frequency = 3000;
-    duration = 300;
+    duration = 200;
 
     /**
      * Creates beeper object

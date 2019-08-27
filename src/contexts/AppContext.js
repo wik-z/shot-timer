@@ -8,25 +8,36 @@ export const stages = {
 
 const AppContext = createContext({
     stage: stages.STAGE_PRIVILEGES,
-    changeStage: (state) => {} 
+    changeStage: (state) => {},
+    threshold: 45,
+    changeThreshold: (state) => {} 
 });
 
 
 class Controller extends React.Component {
     state = {
         stage: stages.STAGE_PRIVILEGES,
-        changeStage: this.changeStage
+        changeStage: this.changeStage,
+        threshold: 45,
+        changeThreshold: this.changeThreshold
     }
 
     constructor(props) {
         super(props);
 
         this.state.changeStage = this.changeStage.bind(this);
+        this.state.changeThreshold = this.changeThreshold.bind(this);
     }
 
     changeStage(stage) {
         this.setState({
             stage
+        });
+    }
+
+    changeThreshold(threshold) {
+        this.setState({
+            threshold
         });
     }
     
