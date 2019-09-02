@@ -1,3 +1,6 @@
 .timer-display {
+    font-size: 24px;
+    background: #ddd;
     font-family: LCD14;
+    padding: 20px 40px;
 }

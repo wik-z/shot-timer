@@ -1,0 +1,12 @@
+.timer-shots-list {
+    padding: 20px 0;
+}    
+
+.timer-shots-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.timer-shots-list ul li {
+    font-family: LCD14;
+}

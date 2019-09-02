@@ -1,0 +1,25 @@
+.timer-buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.timer-button {
+    width: 100%;
+    padding: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+.timer-button-start {
+    background-color: green;
+}
+
+.timer-button-standby {
+    background-color: #d5ce00;
+}
+
+.timer-button-stop {
+    background-color: red;
+}

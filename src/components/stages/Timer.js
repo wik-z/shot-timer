@@ -94,9 +94,10 @@ class Timer extends React.Component {
         setTimeout(() => {
             this.setState({
                 mode: modes.ON,
-                startTimestamp: (new Date()).getTime() - (this.beeper.duration + 50),
+                captureMode: captureModes.LISTENING,
+                startTimestamp: (new Date()).getTime() - this.beeper.duration,
             });
-        }, this.beeper.duration + 50);
+        }, this.beeper.duration);
     }
 
     handleStopButton() {
